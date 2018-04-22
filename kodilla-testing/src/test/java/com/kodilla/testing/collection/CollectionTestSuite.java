@@ -6,39 +6,43 @@ import java.util.ArrayList;
 
 public class CollectionTestSuite {
     @Before
-    public void before(){
+    public void before() {
         System.out.println("Test Case: begin");
     }
+
     @After
-    public void after(){
+    public void after() {
         System.out.println("Test Case: end");
     }
+
     @BeforeClass
     public static void beforeClass() {
         System.out.println("Test Suite: begin");
     }
+
     @AfterClass
     public static void afterClass() {
         System.out.println("Test Suite: end");
     }
 
-@Test
-        public void testOddNumbersExterminatorEmptyList() {
+    @Test
+    public void testOddNumbersExterminatorEmptyList() {
 
-            //Given
+        //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> emptyList = new ArrayList<>();
 
-            //When
+        //When
         ArrayList<Integer> resultEmptyList = oddNumbersExterminator.exterminate(emptyList);
 
-            //Then
+        //Then
         Assert.assertEquals(0, resultEmptyList.size());
         System.out.println("Empty List? - No problem :-)");
-        }
-@Test
-        public void testOddNumbersExterminatorNormalList (){
-            //Givem
+    }
+
+    @Test
+    public void testOddNumbersExterminatorNormalList() {
+        //Givem
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> normalList = new ArrayList<Integer>();
         normalList.add(3);
@@ -48,16 +52,21 @@ public class CollectionTestSuite {
         normalList.add(3);
         normalList.add(8);
 
-             //When
+        ArrayList<Integer> checkList = new ArrayList<Integer>();
+        checkList.add(4);
+        checkList.add(6);
+        checkList.add(8);
+
+        //When
         ArrayList<Integer> resultNormalList = oddNumbersExterminator.exterminate(normalList);
 
-             //Then
+        //Then
         Assert.assertEquals(3, resultNormalList.size());
+        Assert.assertEquals(resultNormalList, checkList);
+
         System.out.println("method .exterminate() is ok!");
-
-
-
+        for (Integer number : resultNormalList) {
+            System.out.println("return number: " + number);
+        }
     }
-
-
-    }
+}
