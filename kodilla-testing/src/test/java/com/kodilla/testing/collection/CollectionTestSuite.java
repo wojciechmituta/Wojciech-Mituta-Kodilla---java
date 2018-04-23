@@ -65,8 +65,5 @@ public class CollectionTestSuite {
         Assert.assertEquals(resultNormalList, checkList);
 
         System.out.println("method .exterminate() is ok!");
-        for (Integer number : resultNormalList) {
-            System.out.println("return number: " + number);
-        }
     }
 }
