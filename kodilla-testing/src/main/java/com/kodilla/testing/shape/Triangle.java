@@ -3,7 +3,6 @@ package com.kodilla.testing.shape;
 import java.util.Objects;
 
 public class Triangle implements Shape {
-    private Shape triangle;
     private double a;
     private double h;
 
@@ -12,12 +11,10 @@ public class Triangle implements Shape {
         this.h = h;
     }
 
-    @Override
     public String getShapeName() {
         return "Triangle";
     }
 
-    @Override
     public double getField() {
         return (a * h)/2;
     }
@@ -26,15 +23,14 @@ public class Triangle implements Shape {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Triangle triangle1 = (Triangle) o;
-        return a == triangle1.a &&
-                h == triangle1.h &&
-                Objects.equals(triangle, triangle1.triangle);
+        Triangle triangle = (Triangle) o;
+        return Double.compare(triangle.a, a) == 0 &&
+                Double.compare(triangle.h, h) == 0;
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(triangle, a, h);
+        return Objects.hash(a, h);
     }
 }
