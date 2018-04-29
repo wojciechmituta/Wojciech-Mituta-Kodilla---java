@@ -26,11 +26,7 @@ public class ForumStatisticsTestSuite {
         Statistics statNumberOfUsersMock = mock(Statistics.class);
         StatisticsForum statisticsForum = new StatisticsForum();
         int numberOfUsers = 100;
-        List<String> usersNamesList = new ArrayList<>();
-        for (int n = 1; n <= numberOfUsers; n++) {
-            String userName = "user" + n;
-            usersNamesList.add(userName);
-        }
+        List<String> usersNamesList = generateUserName(numberOfUsers);
 
         int numberOfPosts = 10;
         int numberOfComments = 50;
@@ -53,11 +49,7 @@ public class ForumStatisticsTestSuite {
         Statistics statNumberOfUsersMock = mock(Statistics.class);
         StatisticsForum statisticsForum = new StatisticsForum();
         int numberOfUsers = 0;
-        List<String> usersNamesList = new ArrayList<>();
-        for (int n = 1; n <= numberOfUsers; n++) {
-            String userName = "user" + n;
-            usersNamesList.add(userName);
-        }
+        List<String> usersNamesList = generateUserName(numberOfUsers);
 
         int numberOfPosts = 10;
 
@@ -76,11 +68,7 @@ public class ForumStatisticsTestSuite {
         Statistics statNumberOfUsersMock = mock(Statistics.class);
         StatisticsForum statisticsForum = new StatisticsForum();
         int numberOfUsers = 1000;
-        List<String> usersNamesList = new ArrayList<>();
-        for (int n = 1; n <= numberOfUsers; n++) {
-            String userName = "user" + n;
-            usersNamesList.add(userName);
-        }
+        List<String> usersNamesList = generateUserName(numberOfUsers);
 
         int numberOfComments = 500;
 
@@ -109,6 +97,15 @@ public class ForumStatisticsTestSuite {
         statisticsForum.showStatistics();
         //Then
         Assert.assertEquals(0, statisticsForum.getAverageCommentsToPosts(), 0);
+    }
+
+    private List<String> generateUserName(int numberOfUsers) {
+        List<String> usersNamesList = new ArrayList<>();
+        for (int n = 1; n <= numberOfUsers; n++) {
+            String userName = "user" + n;
+            usersNamesList.add(userName);
+        }
+        return usersNamesList;
     }
 }
 

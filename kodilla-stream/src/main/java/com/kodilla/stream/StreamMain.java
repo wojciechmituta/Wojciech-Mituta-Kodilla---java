@@ -1,27 +1,22 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.ExecuteSaySomething;
-import com.kodilla.stream.lambda.Executor;
-import com.kodilla.stream.lambda.Processor;
-import com.kodilla.stream.lambda.SaySomething;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
+
     public static void main(String[] args) {
-        //     System.out.println("Welcome to module 7 - Stream");
-        //      Processor processor = new Processor();
-        //    Executor codeToExecute = () -> System.out.println("This is an example text.");
-        //  processor.execute(codeToExecute);
-        //}
-
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("Tomek", (a -> "ABCD" + a + "ABCD"));
-        poemBeautifier.beautify("Michal", (a -> a.toUpperCase()));
-        poemBeautifier.beautify("KASIA", (a -> a.toLowerCase()));
-        poemBeautifier.beautify("MAGDA", (a -> a.substring(1, 3)));
-
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
+        Forum forum = new Forum();
+        Map<Integer, ForumUser> resultList = forum.getTheUserList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'M')
+                .filter(forumUser -> forumUser.ageCalculator() > 20)
+                .filter(forumUser -> forumUser.getNumberOfPosts() >= 1)
+                .collect(Collectors.toMap(ForumUser::getUserID, user -> user));
+        System.out.println("# elements: " + resultList.size());
+        resultList.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                .forEach(System.out::println);
     }
 }
