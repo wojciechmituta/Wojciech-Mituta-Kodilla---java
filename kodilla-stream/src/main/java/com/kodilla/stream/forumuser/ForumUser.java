@@ -9,7 +9,6 @@ public final class ForumUser {
     private final char sex;
     private final LocalDate dateOfBirth;
     private final int numberOfPosts;
-    private final LocalDate now = LocalDate.now();
 
     public ForumUser(int userID, String userName, char sex, LocalDate dateOfBirth, int numberOfPosts) {
         this.userID = userID;
@@ -48,10 +47,5 @@ public final class ForumUser {
                 ", dateOfBrith=" + dateOfBirth +
                 ", numberOfPosts=" + numberOfPosts +
                 '}';
-    }
-
-    public int ageCalculator() {
-        Period period = Period.between(dateOfBirth, now);
-        return period.getYears();
     }
 }
