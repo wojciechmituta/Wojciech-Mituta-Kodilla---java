@@ -2,27 +2,21 @@ package com.kodilla.stream.world;
 
 import java.math.BigDecimal;
 import java.util.*;
-import java.util.stream.Collectors;
 
-public class World {
-    private final Set<Continent> countries;
+public final class World {
+    private final Set<Continent> world;
 
-    public World(Set<Continent> countries) {
-        this.countries = countries;
+    public World(Set<Continent> world) {
+        this.world = world;
     }
 
     public BigDecimal getPeopleQuantity() {
-        return countries.stream()
-                .flatMap(continent -> continent.getCountries().stream()
-                        .map(Country::getPeopleQuantity()
-                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
-
-
+        return world.stream()
+                .flatMap(continent -> continent.getCountries().stream())
+                .map(Country::getPeopleQuantity)
+                .reduce(BigDecimal.ZERO, ((sum, peopleQuantity) -> sum = sum.add(peopleQuantity)));
     }
-
-
 }
-
 
 
 
