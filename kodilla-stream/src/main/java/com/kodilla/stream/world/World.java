@@ -16,6 +16,20 @@ public final class World {
                 .map(Country::getPeopleQuantity)
                 .reduce(BigDecimal.ZERO, ((sum, peopleQuantity) -> sum = sum.add(peopleQuantity)));
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        World world1 = (World) o;
+        return Objects.equals(world, world1.world);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(world);
+    }
 }
 
 
