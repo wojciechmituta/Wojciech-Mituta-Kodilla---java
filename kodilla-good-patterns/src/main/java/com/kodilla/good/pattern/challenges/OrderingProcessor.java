@@ -13,7 +13,7 @@ public class OrderingProcessor {
     }
 
     public OrderDto process(final OrderRequest orderRequest) {
-        boolean isOrdered = orderService.order(orderRequest.getUser(), orderRequest.getLocalDate());
+        boolean isOrdered = orderService.order(orderRequest.getUser(), orderRequest.getLocalDate(), orderRequest.getProduct());
 
         if(isOrdered) {
             informationService.info(orderRequest.getUser());

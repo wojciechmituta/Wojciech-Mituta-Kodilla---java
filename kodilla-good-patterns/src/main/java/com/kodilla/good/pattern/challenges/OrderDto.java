@@ -3,18 +3,18 @@ package com.kodilla.good.pattern.challenges;
 public class OrderDto {
 
     public User user;
-    public boolean SalleCopleated;
+    public boolean SalleCompleated;
 
-    public OrderDto(User user, boolean salleCopleated) {
+    public OrderDto(User user, boolean salleCompleated) {
         this.user = user;
-        SalleCopleated = salleCopleated;
+        SalleCompleated = salleCompleated;
     }
 
     public User getUser() {
         return user;
     }
 
-    public boolean isSalleCopleated() {
-        return SalleCopleated;
+    public boolean isSalleCompleated() {
+        return SalleCompleated;
     }
 }
