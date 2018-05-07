@@ -3,7 +3,7 @@ package com.kodilla.good.pattern.challenges;
 public class OrderDto {
 
     public User user;
-    public  boolean SalleCopleated;
+    public boolean SalleCopleated;
 
     public OrderDto(User user, boolean salleCopleated) {
         this.user = user;

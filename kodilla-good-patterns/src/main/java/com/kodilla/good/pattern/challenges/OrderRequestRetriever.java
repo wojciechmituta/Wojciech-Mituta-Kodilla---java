@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 public class OrderRequestRetriever {
 
-
     public OrderRequest retrieve() {
         User user = new User("Leszek", "Nowak");
-        Product product = new Product("Ksiazka", 30);
-        return new OrderRequest(user, product);
+        Product product = new Product("Book", 30);
+        LocalDate localDate =  LocalDate.of(2017, 6, 18);
+        return new OrderRequest(user, product, localDate);
     }
 }

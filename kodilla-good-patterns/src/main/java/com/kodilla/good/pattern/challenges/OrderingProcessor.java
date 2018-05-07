@@ -13,18 +13,16 @@ public class OrderingProcessor {
     }
 
     public OrderDto process(final OrderRequest orderRequest) {
-        boolean isOrdered = orderService.order(orderRequest.getUser());
+        boolean isOrdered = orderService.order(orderRequest.getUser(), orderRequest.getLocalDate());
 
         if(isOrdered) {
             informationService.info(orderRequest.getUser());
-            orderRepository.createOrder(orderRequest.getUser(), orderRequest.getDate(), orderRequest.getProduct());
+            orderRepository.createOrder(orderRequest.getUser(), orderRequest.getLocalDate(), orderRequest.getProduct());
             return new OrderDto(orderRequest.getUser(), true);
         } else {
             return new OrderDto(orderRequest.getUser(), false);
         }
     }
-}
-public class Application {
 
     public static void main(String[] args) {
 

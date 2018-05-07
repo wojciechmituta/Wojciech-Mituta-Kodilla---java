@@ -5,12 +5,12 @@ import java.time.LocalDate;
 public class OrderRequest {
     public User user;
     public Product product;
+    public LocalDate localDate;
 
-
-    public OrderRequest(User user, Product product) {
+    public OrderRequest(User user, Product product, LocalDate localDate) {
         this.user = user;
         this.product = product;
-
+        this.localDate = localDate;
     }
 
     public User getUser() {
@@ -21,6 +21,5 @@ public class OrderRequest {
         return product;
     }
 
-
-
+    public LocalDate getLocalDate () {return localDate;}
 }
