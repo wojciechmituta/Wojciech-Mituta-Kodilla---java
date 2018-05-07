@@ -13,7 +13,7 @@ public class OrderingProcessor {
     }
 
     public OrderDto process(final OrderRequest orderRequest) {
-        boolean isOrdered = orderService.order(orderRequest.getUser(), orderRequest.);
+        boolean isOrdered = orderService.order(orderRequest.getUser());
 
         if(isOrdered) {
             informationService.info(orderRequest.getUser());
@@ -31,7 +31,7 @@ public class Application {
         OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
         OrderRequest orderRequest = orderRequestRetriever.retrieve();
 
-        OrderingProcessor orderingProcessor = new OrderingProcessor(new SendMesange(), new OrderService(), new OrderRepository());
+        OrderingProcessor orderingProcessor = new OrderingProcessor(new SendMesange(), new ProductOrderService(), new ProductOrderRepository());
         orderingProcessor.process(orderRequest);
     }
 }
