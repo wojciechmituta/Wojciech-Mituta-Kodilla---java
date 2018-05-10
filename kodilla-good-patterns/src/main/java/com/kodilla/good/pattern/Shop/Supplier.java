@@ -3,7 +3,8 @@ package com.kodilla.good.pattern.Shop;
 import java.util.Map;
 
 public interface Supplier {
-    void process(OrderRequest orderRequest);
+
+    void process();
 
     String getName();
 

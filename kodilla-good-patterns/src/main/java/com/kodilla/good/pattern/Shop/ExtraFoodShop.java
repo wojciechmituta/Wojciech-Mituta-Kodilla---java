@@ -19,8 +19,8 @@ public class ExtraFoodShop implements Supplier {
     }
 
     @Override
-    public void process(OrderRequest orderRequest) {
-        System.out.println("The order was completed. The customer received a 10% discount" + orderRequest.getSupplier().getName());
+    public void process() {
+        System.out.println("The order was completed. The customer received a 10% discount");
     }
 
     @Override
