@@ -1,6 +1,5 @@
 package com.kodilla.good.pattern.flights;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Flight {
@@ -22,10 +21,9 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight{" +
-                "cityOfDeparture='" + cityOfDeparture + '\'' +
-                ", cityOfArrival='" + cityOfArrival + '\'' +
-                '}';
+        return "Flight" +
+                " from: " + cityOfDeparture + '\'' +
+                " to: " + cityOfArrival + '\'';
     }
 
     @Override
