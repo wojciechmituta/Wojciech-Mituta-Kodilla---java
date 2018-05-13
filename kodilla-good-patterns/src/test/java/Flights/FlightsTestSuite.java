@@ -1,5 +1,6 @@
 package Flights;
 
+import com.kodilla.good.pattern.flights.Flight;
 import com.kodilla.good.pattern.flights.FlightBrowser;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,9 +13,10 @@ public class FlightsTestSuite {
         //Given
         FlightBrowser flightBrowser = new FlightBrowser();
         //When
-        String result = flightBrowser.findFlightTo("Poznan");
+        Flight result = flightBrowser.findFlightTo("Poznan");
         //Then
-        Assert.assertEquals("<<Flight from: Poznan' to: Warszawa'>>", result);
+        Assert.assertEquals("Poznan", result.getCityOfArrival());
+        Assert.assertEquals("Zielona Gora", result.getCityOfDeparture());
     }
 
     @Test
@@ -23,10 +25,10 @@ public class FlightsTestSuite {
         //Given
         FlightBrowser flightBrowser = new FlightBrowser();
         //When
-        String result = flightBrowser.findFlightFrom("Gdansk");
+        Flight result = flightBrowser.findFlightFrom("Warszawa");
         //Then
-        Assert.assertEquals("<<Flight from: Warszawa' to: Gdansk',\n" +
-                "Flight from: Zielona Gora' to: Gdansk'>>", result);
+        Assert.assertEquals("Warszawa", result.getCityOfDeparture());
+        Assert.assertEquals("Poznan", result.getCityOfArrival());
     }
 
     @Test
@@ -35,7 +37,7 @@ public class FlightsTestSuite {
         //Given
         FlightBrowser flightBrowser = new FlightBrowser();
         //When
-        String result = flightBrowser.FindFlightBy("Poznan", "Gdansk", "Warszawa");
+        String result = flightBrowser.findFlightBy("Poznan", "Gdansk", "Warszawa");
         //Then
         Assert.assertEquals("<<Flight from: Poznan' to: Warszawa',\n" +
                 "Flight from: Warszawa' to: Gdansk'>>", result);

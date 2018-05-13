@@ -3,32 +3,27 @@ package com.kodilla.good.pattern.flights;
 import java.util.stream.Collectors;
 
 public class FlightBrowser {
-    String CityOfDeparture;
-    String CityOfArrival;
-    String CityOfChange;
 
     FlightRegister flightRegister = new FlightRegister();
 
-    public String findFlightTo(String CityOfDeparture) {
-        String result = flightRegister.flightsRegister.stream()
-                .filter(f -> f.getCityOfDeparture().equals(CityOfDeparture))
-                .map(Flight::toString)
-                .collect(Collectors.joining(",\n", "<<", ">>"));
+    public Flight findFlightFrom(String cityOfDeparture) {
+        Flight result = flightRegister.flightsRegister.stream()
+                .filter(f -> f.getCityOfDeparture().equals(cityOfDeparture))
+                .findAny().orElse(null);
         return result;
     }
 
-    public String findFlightFrom(String CityOfArrival) {
-        String result = flightRegister.flightsRegister.stream()
-                .filter(f -> f.getCityOfArrival().equals(CityOfArrival))
-                .map(Flight::toString)
-                .collect(Collectors.joining(",\n", "<<", ">>"));
+    public Flight findFlightTo(String cityOfArrival) {
+        Flight result = flightRegister.flightsRegister.stream()
+                .filter(f -> f.getCityOfArrival().equals(cityOfArrival))
+                .findAny().orElse(null);
         return result;
     }
 
-    public String FindFlightBy(String CityOfDeparture, String CityOfArrival, String CityOfChange) {
+    public String findFlightBy(String cityOfDeparture, String cityOfArrival, String cityOfChange) {
         String result = flightRegister.flightsRegister.stream()
-                .filter(f -> (f.getCityOfArrival().equals(CityOfArrival)) || (f.getCityOfDeparture().equals(CityOfDeparture)))
-                .filter(g -> (g.cityOfArrival.equals(CityOfChange)) || (g.cityOfDeparture.equals(CityOfChange)))
+                .filter(f -> (f.getCityOfArrival().equals(cityOfArrival)) || (f.getCityOfDeparture().equals(cityOfDeparture)))
+                .filter(g -> (g.cityOfArrival.equals(cityOfChange)) || (g.cityOfDeparture.equals(cityOfChange)))
                 .map(Flight::toString)
                 .collect(Collectors.joining(",\n", "<<", ">>"));
         return result;
