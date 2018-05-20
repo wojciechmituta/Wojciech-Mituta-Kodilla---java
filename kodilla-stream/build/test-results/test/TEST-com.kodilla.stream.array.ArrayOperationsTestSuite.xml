@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.stream.array.ArrayOperationsTestSuite" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-05-20T14:48:32" hostname="Wojtek" time="0.027">
+  <properties/>
+  <testcase name="testGetAverage" classname="com.kodilla.stream.array.ArrayOperationsTestSuite" time="0.024"/>
+  <testcase name="testGetAverageEmptyTable" classname="com.kodilla.stream.array.ArrayOperationsTestSuite" time="0.002"/>
+  <system-out><![CDATA[3
+4
+3
+5
+3
+6
+7
+2
+5
+2
+7
+4
+2
+7
+4
+8
+2
+6
+4
+9
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

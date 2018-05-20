@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-04-27T15:40:47" hostname="Wojtek-Komputer" time="0.675">
+<testsuite name="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-05-20T14:48:35" hostname="Wojtek" time="0.609">
   <properties/>
-  <testcase name="testAverageCommentsToPosts" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.667"/>
-  <testcase name="testAverageCommentsToUser" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.003"/>
-  <testcase name="testCheckNumberOfNamesCommentsAndPosts" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.002"/>
+  <testcase name="testAverageCommentsToPosts" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.594"/>
+  <testcase name="testAverageCommentsToUser" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.008"/>
+  <testcase name="testCheckNumberOfNamesCommentsAndPosts" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.003"/>
   <testcase name="testAveragePostsToUser" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.003"/>
   <system-out><![CDATA[
 Test number: 1

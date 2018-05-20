@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.spring.portfolio.BoardTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-05-20T14:48:26" hostname="Wojtek" time="0.059">
+  <properties/>
+  <testcase name="testTaskAdd" classname="com.kodilla.spring.portfolio.BoardTestSuite" time="0.059"/>
+  <system-out><![CDATA[2018-05-20 16:48:26.113  INFO 4948 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@37fb551c: startup date [Sun May 20 16:48:26 CEST 2018]; root of context hierarchy
+Board{toDoList=TaskList{tasks=[work1]}
+, inProgressList=TaskList{tasks=[work2]}
+, doneList=TaskList{tasks=[work3]}}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
