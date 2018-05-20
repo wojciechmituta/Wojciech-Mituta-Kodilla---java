@@ -16,7 +16,7 @@ public class FlightsTestSuite {
         Flight result = flightBrowser.findFlightTo("Poznan");
         //Then
         Assert.assertEquals("Poznan", result.getCityOfArrival());
-        Assert.assertEquals("Zielona Gora", result.getCityOfDeparture());
+        Assert.assertEquals("Warszawa", result.getCityOfDeparture());
     }
 
     @Test
