@@ -27,6 +27,7 @@ public class LibraryTestSuite {
         library.getBooks().add(book5);
         library.getBooks().add(book6);
 
+        //When
         Library clonedLibrary = null;
         try {
             clonedLibrary = library.shallowCopy();
@@ -43,7 +44,6 @@ public class LibraryTestSuite {
             System.out.println(e);
         }
 
-        //When
         library.getBooks().remove(book6);
 
         //Then
