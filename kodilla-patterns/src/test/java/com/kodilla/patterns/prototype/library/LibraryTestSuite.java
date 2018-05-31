@@ -11,7 +11,7 @@ public class LibraryTestSuite {
     public void testGetBooks() {
 
         //Given
-        Book book1 = new Book("abc", "abcd", LocalDate.of(1991, 2, 1));
+        Book book1 = new Book("hashmapy", "abcd", LocalDate.of(1991, 2, 1));
         Book book2 = new Book("asdf", "asdfgh", LocalDate.of(2005, 6, 18));
         Book book3 = new Book("yhgjhgh", "hjhfkkjgf", LocalDate.of(2010, 5, 10));
         Book book4 = new Book("uhjkhgfgdf", "vjvcfdsdf", LocalDate.of(1956, 3, 29));

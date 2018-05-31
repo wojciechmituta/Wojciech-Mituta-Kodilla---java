@@ -1,8 +1,5 @@
 package com.kodilla.good.pattern.Shop;
 
-import com.kodilla.good.pattern.challenges.Product;
-import com.kodilla.good.pattern.challenges.User;
-
 import java.time.LocalDate;
 import java.util.Map;
 

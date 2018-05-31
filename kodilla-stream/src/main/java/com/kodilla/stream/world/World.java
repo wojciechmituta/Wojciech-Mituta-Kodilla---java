@@ -1,7 +1,8 @@
 package com.kodilla.stream.world;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.Objects;
+import java.util.Set;
 
 public final class World {
     private final Set<Continent> world;

@@ -1,8 +1,5 @@
 package com.kodilla.testing.Zadania;
 
-import java.io.*;
-
-
 public class Palindrom {
 
     public static void main(String[] args) {

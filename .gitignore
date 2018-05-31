@@ -9,7 +9,8 @@
 .project
 .settings
 .springBeans
-.sts4-cache
+.sts4-cac
+he
 
 ### IntelliJ IDEA ###
 .idea
@@ -19,9 +20,11 @@
 
 ### NetBeans ###
 /nbproject/private/
-/build/
+abuild/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-/out/production/
+aout/
+aProductService.java
+a/kodilla-patterns/build/

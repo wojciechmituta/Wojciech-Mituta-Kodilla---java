@@ -1,7 +1,8 @@
 package com.kodilla.testing.shape;
 
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class ShapeCollectorTestSuite {
     @Test

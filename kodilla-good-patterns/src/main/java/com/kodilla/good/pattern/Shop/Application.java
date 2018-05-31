@@ -1,7 +1,5 @@
 package com.kodilla.good.pattern.Shop;
 
-import java.util.Map;
-
 public class Application {
 
     public static void main(String[] args) {
