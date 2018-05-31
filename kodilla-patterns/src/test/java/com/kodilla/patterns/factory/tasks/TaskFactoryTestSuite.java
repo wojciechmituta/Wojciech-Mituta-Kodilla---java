@@ -42,7 +42,7 @@ public class TaskFactoryTestSuite {
 
         //Then
         Assert.assertEquals("driving", drivingTask.getTaskName());
-        Assert.assertEquals("Task is processed", drivingTask.executeTask());
+        Assert.assertEquals("The task is processed", drivingTask.executeTask());
         Assert.assertEquals(true, drivingTask.isTaskExecuted());
     }
 }
