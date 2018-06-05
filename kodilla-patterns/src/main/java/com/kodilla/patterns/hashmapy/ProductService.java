@@ -27,7 +27,6 @@ public class ProductService {
         product.addToMap("maslo", 2);
         product.addToMap("mleko", 5);
 
-
         System.out.println("Cena dla produktu maslo: " + product.getPrice("keczup"));
     }
 }
