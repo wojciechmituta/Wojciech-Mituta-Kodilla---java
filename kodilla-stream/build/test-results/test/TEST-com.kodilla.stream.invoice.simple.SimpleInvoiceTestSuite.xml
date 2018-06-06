@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.stream.invoice.simple.SimpleInvoiceTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-05-31T16:10:53" hostname="Wojtek" time="0.005">
+<testsuite name="com.kodilla.stream.invoice.simple.SimpleInvoiceTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-06-06T16:51:34" hostname="Wojtek" time="0.005">
   <properties/>
   <testcase name="testGetValueToPay" classname="com.kodilla.stream.invoice.simple.SimpleInvoiceTestSuite" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
