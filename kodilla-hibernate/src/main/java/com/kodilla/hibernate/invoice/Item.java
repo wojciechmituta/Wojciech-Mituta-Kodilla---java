@@ -1,13 +1,12 @@
 package com.kodilla.hibernate.invoice;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "ITEM")
 public class Item {
-    private int id;
+    private Integer id;
     private Product product;
     private BigDecimal price;
     private int quantity;
@@ -25,13 +24,12 @@ public class Item {
 
     @Id
     @GeneratedValue
-    @NotNull
     @Column(name = "ID", unique = true)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
