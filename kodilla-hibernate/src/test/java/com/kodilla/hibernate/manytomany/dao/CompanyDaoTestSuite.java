@@ -50,7 +50,7 @@ public class CompanyDaoTestSuite {
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
         List<Employee> employeeFindByLastName = employeeDao.findByLastName("Smith");
-        List<Company> companyFindByParam = companyDao.findByParam("Dat%");
+        List<Company> companyFindByParam = companyDao.findByParam("Dat");
 
         //Then
         Assert.assertNotEquals(0, softwareMachineId);
