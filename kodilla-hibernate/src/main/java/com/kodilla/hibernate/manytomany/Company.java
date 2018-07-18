@@ -10,6 +10,12 @@ import java.util.List;
         query = "SELECT * FROM COMPANIES WHERE LEFT(COMPANY_NAME, 3) = :PATTERN",
         resultClass = Company.class
 )
+
+@NamedQuery(
+        name = "Company.findMatchingName",
+        query = "FROM Company WHERE name LIKE CONCAT('%',:NAME,'%')"
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

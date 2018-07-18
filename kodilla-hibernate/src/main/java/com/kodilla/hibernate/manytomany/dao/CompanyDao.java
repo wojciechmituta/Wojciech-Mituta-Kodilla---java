@@ -12,6 +12,10 @@ import java.util.List;
 @Transactional
 @Repository
 public interface CompanyDao extends CrudRepository<Company, Integer> {
+
     @Query(nativeQuery = true)
     List<Company> findByParam(@Param("PATTERN") String pattern);
+
+    @Query
+    List<Company> findMatchingName(@Param("NAME") String name);
 }
