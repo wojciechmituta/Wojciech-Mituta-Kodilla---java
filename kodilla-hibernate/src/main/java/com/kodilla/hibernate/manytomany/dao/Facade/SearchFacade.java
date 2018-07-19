@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class SearchFacade {
@@ -52,10 +52,27 @@ public class SearchFacade {
             throw new SearchException(SearchException.ERR_COMPANY_NOT_FOUND);
         } else {
             LOGGER.info("List of companies matching");
-            for (Company company : list){
+            Set<Company> setList = new HashSet<>(list);
+            List<Company> exitList = new ArrayList<>(setList);
+            for (Company company : exitList){
                 LOGGER.info(company.getName());
             }
-            return list;
+            return exitList;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SearchFacade that = (SearchFacade) o;
+        return Objects.equals(companyDao, that.companyDao) &&
+                Objects.equals(employeeDao, that.employeeDao);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(companyDao, employeeDao);
     }
 }
