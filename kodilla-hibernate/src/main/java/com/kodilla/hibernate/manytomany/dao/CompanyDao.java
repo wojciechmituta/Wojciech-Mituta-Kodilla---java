@@ -18,7 +18,4 @@ public interface CompanyDao extends CrudRepository<Company, Integer> {
 
     @Query
     List<Company> findMatchingName(@Param("NAME") String name);
-
-    void delete(int id);
-
 }

@@ -19,8 +19,12 @@ public class FacadeTestSuite {
     @Autowired
     private SearchFacade searchFacade;
 
+    @Autowired
+    private CompanyDao companyDao;
+
     @Test
     public void testMatchingCompaniesName() {
+       companyDao.deleteAll();
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -43,9 +47,9 @@ public class FacadeTestSuite {
         lindaKovalsky.getCompanies().add(greyMatter);
 
         //When
-        searchFacade.save(softwareMachine);
-        searchFacade.save(greyMatter);
-        searchFacade.save(greyMatter);
+        companyDao.save(softwareMachine);
+        companyDao.save(greyMatter);
+        companyDao.save(greyMatter);
 
         List<Company> matchingCompaniesName = null;
         try {
@@ -58,9 +62,7 @@ public class FacadeTestSuite {
         Assert.assertEquals(1, matchingCompaniesName.size());
 
         //CleanUp
-        searchFacade.delete(softwareMachine.getId());
-        searchFacade.delete(greyMatter.getId());
-        searchFacade.delete(dataMaesters.getId());
+       //companyDao.deleteAll();
     }
 
     @Test
@@ -87,9 +89,9 @@ public class FacadeTestSuite {
         lindaKovalsky.getCompanies().add(greyMatter);
 
         //When
-        searchFacade.save(softwareMachine);
-        searchFacade.save(greyMatter);
-        searchFacade.save(dataMaesters);
+        companyDao.save(softwareMachine);
+        companyDao.save(greyMatter);
+        companyDao.save(dataMaesters);
 
         List<Employee> matchingEmployeeName = null;
         try {
@@ -102,9 +104,7 @@ public class FacadeTestSuite {
         Assert.assertEquals(1, matchingEmployeeName.size());
 
         //CleanUp
-        searchFacade.delete(softwareMachine.getId());
-        searchFacade.delete(greyMatter.getId());
-        searchFacade.delete(dataMaesters.getId());
+        //companyDao.deleteAll();
     }
 }
 

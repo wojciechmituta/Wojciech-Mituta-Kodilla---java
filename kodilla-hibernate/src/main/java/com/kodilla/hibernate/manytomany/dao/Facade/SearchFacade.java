@@ -19,14 +19,6 @@ public class SearchFacade {
     @Autowired
     private EmployeeDao employeeDao;
 
-    public void save(Company company){
-        companyDao.save(company);
-    }
-
-    public void delete(int id){
-        companyDao.delete(id);
-    }
-
     private final static Logger LOGGER = LoggerFactory.getLogger(SearchFacade.class);
 
     public List<Employee> searchEmployee(String search) throws SearchException {
