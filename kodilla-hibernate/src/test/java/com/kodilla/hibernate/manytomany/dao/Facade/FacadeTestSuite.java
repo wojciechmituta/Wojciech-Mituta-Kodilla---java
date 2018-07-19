@@ -4,6 +4,7 @@ import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
 import com.kodilla.hibernate.manytomany.dao.CompanyDao;
 import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,11 +47,20 @@ public class FacadeTestSuite {
         searchFacade.save(greyMatter);
         searchFacade.save(greyMatter);
 
+        List<Company> matchingCompaniesName = null;
         try {
-            List<Company> matchingCompaniesName = searchFacade.searchCompany("soft");
+            matchingCompaniesName = searchFacade.searchCompany("soft");
         } catch (SearchException e) {
             e.printStackTrace();
         }
+
+        //Then
+        Assert.assertEquals(1, matchingCompaniesName.size());
+
+        //CleanUp
+        searchFacade.delete(softwareMachine.getId());
+        searchFacade.delete(greyMatter.getId());
+        searchFacade.delete(dataMaesters.getId());
     }
 
     @Test
@@ -79,13 +89,22 @@ public class FacadeTestSuite {
         //When
         searchFacade.save(softwareMachine);
         searchFacade.save(greyMatter);
-        searchFacade.save(greyMatter);
+        searchFacade.save(dataMaesters);
 
+        List<Employee> matchingEmployeeName = null;
         try {
-            List<Employee> matchingEmployeeName = searchFacade.searchEmployee("Sm");
+            matchingEmployeeName = searchFacade.searchEmployee("Sm");
         } catch (SearchException e) {
             e.printStackTrace();
         }
+
+        //Then
+        Assert.assertEquals(1, matchingEmployeeName.size());
+
+        //CleanUp
+        searchFacade.delete(softwareMachine.getId());
+        searchFacade.delete(greyMatter.getId());
+        searchFacade.delete(dataMaesters.getId());
     }
 }
 

@@ -61,20 +61,4 @@ public class Company {
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Company company = (Company) o;
-        return id == company.id &&
-                Objects.equals(name, company.name) &&
-                Objects.equals(employees, company.employees);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, name, employees);
-    }
 }

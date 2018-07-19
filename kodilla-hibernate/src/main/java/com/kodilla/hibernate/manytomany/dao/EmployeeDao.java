@@ -19,4 +19,5 @@ public interface EmployeeDao extends CrudRepository<Employee, Integer> {
     @Query
     List<Employee> findMatchingName(@Param("NAME") String name);
 
+    void delete(int id);
 }

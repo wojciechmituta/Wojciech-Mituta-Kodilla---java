@@ -29,7 +29,7 @@ public class SearchFacade {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(SearchFacade.class);
 
-    public List<Employee> searchEmployee(String search) throws SearchException{
+    public List<Employee> searchEmployee(String search) throws SearchException {
         LOGGER.info("Searching for employees matching " + search);
         List<Employee> list = employeeDao.findMatchingName(search);
         if (list.size() < 1) {
@@ -44,7 +44,7 @@ public class SearchFacade {
         }
     }
 
-    public List<Company> searchCompany(String name) throws SearchException{
+    public List<Company> searchCompany(String name) throws SearchException {
         LOGGER.info("Searching for companies matching " + name);
         List<Company> list = companyDao.findMatchingName(name);
         if(list.size() < 1){
@@ -52,12 +52,10 @@ public class SearchFacade {
             throw new SearchException(SearchException.ERR_COMPANY_NOT_FOUND);
         } else {
             LOGGER.info("List of companies matching");
-            Set<Company> setList = new HashSet<>(list);
-            List<Company> exitList = new ArrayList<>(setList);
-            for (Company company : exitList){
+            for (Company company : list){
                 LOGGER.info(company.getName());
             }
-            return exitList;
+            return list;
         }
     }
 }
