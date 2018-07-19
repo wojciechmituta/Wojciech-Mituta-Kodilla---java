@@ -58,6 +58,9 @@ public class FacadeTestSuite {
 
         //Then
         Assert.assertEquals(1, matchingCompaniesName.size());
+
+        //CleanUp
+        companyDao.deleteAll();
     }
 
     @Test
@@ -76,17 +79,12 @@ public class FacadeTestSuite {
         dataMaesters.getEmployees().add(lindaKovalsky);
         greyMatter.getEmployees().add(johnSmith);
         greyMatter.getEmployees().add(lindaKovalsky);
-
-        johnSmith.getCompanies().add(softwareMachine);
-        johnSmith.getCompanies().add(greyMatter);
-        stephanieClarckson.getCompanies().add(dataMaesters);
-        lindaKovalsky.getCompanies().add(dataMaesters);
-        lindaKovalsky.getCompanies().add(greyMatter);
+        employeeDao.deleteAll();
 
         //When
-        companyDao.save(softwareMachine);
-        companyDao.save(greyMatter);
-        companyDao.save(dataMaesters);
+        employeeDao.save(johnSmith);
+        employeeDao.save(stephanieClarckson);
+        employeeDao.save(lindaKovalsky);
 
         List<Employee> matchingEmployeeName = null;
         try {
@@ -99,7 +97,7 @@ public class FacadeTestSuite {
         Assert.assertEquals(1, matchingEmployeeName.size());
 
         //CleanUp
-        employeeDao.deleteAll();
+
     }
 }
 
