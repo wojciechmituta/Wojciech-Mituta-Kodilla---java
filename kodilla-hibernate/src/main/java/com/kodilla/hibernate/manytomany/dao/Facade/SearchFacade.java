@@ -60,19 +60,4 @@ public class SearchFacade {
             return exitList;
         }
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        SearchFacade that = (SearchFacade) o;
-        return Objects.equals(companyDao, that.companyDao) &&
-                Objects.equals(employeeDao, that.employeeDao);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(companyDao, employeeDao);
-    }
 }
