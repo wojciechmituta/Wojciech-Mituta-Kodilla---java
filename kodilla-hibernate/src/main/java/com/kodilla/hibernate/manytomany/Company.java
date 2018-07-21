@@ -53,7 +53,7 @@ public class Company {
         this.name = name;
     }
 
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.REMOVE},  mappedBy = "companies")
+    @ManyToMany(cascade = CascadeType.ALL,  mappedBy = "companies")
     public List<Employee> getEmployees() {
         return employees;
     }

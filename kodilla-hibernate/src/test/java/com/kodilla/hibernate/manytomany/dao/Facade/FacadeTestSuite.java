@@ -27,7 +27,6 @@ public class FacadeTestSuite {
 
     @Test
     public void testMatchingCompaniesName() {
-        companyDao.deleteAll();
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -42,6 +41,12 @@ public class FacadeTestSuite {
         dataMaesters.getEmployees().add(lindaKovalsky);
         greyMatter.getEmployees().add(johnSmith);
         greyMatter.getEmployees().add(lindaKovalsky);
+
+        johnSmith.getCompanies().add(softwareMachine);
+        johnSmith.getCompanies().add(greyMatter);
+        stephanieClarckson.getCompanies().add(dataMaesters);
+        lindaKovalsky.getCompanies().add(dataMaesters);
+        lindaKovalsky.getCompanies().add(greyMatter);
 
 
         //When
@@ -60,7 +65,7 @@ public class FacadeTestSuite {
         Assert.assertEquals(1, matchingCompaniesName.size());
 
         //CleanUp
-        companyDao.deleteAll();
+        employeeDao.deleteAll();
     }
 
     @Test
@@ -80,6 +85,11 @@ public class FacadeTestSuite {
         greyMatter.getEmployees().add(johnSmith);
         greyMatter.getEmployees().add(lindaKovalsky);
         employeeDao.deleteAll();
+        johnSmith.getCompanies().add(softwareMachine);
+        johnSmith.getCompanies().add(greyMatter);
+        stephanieClarckson.getCompanies().add(dataMaesters);
+        lindaKovalsky.getCompanies().add(dataMaesters);
+        lindaKovalsky.getCompanies().add(greyMatter);
 
         //When
         employeeDao.save(johnSmith);
