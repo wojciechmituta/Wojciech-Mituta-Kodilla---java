@@ -1,4 +1,4 @@
-package com.kodilla.hibernate.manytomany.dao.Facade;
+package com.kodilla.hibernate.manytomany.dao.facade;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
