@@ -16,12 +16,12 @@ public class CourseTask implements Observable {
 
     public void addStudent(StudentUser studentUser) {
         students.add(studentUser);
+        notifyObservers();
     }
 
     @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);
-        notifyObservers();
     }
 
     @Override

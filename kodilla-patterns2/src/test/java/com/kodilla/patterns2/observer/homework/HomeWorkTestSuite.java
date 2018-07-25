@@ -26,7 +26,7 @@ public class HomeWorkTestSuite {
         patterns.addStudent(dawid);
 
         //Then
-        Assert.assertEquals(2, michal.getUpdateCount());
+        Assert.assertEquals(4, michal.getUpdateCount());
         Assert.assertEquals(1, karol.getUpdateCount());
     }
 }
