@@ -70,11 +70,10 @@ public class CrudAppTestSuite {
                 });
 
         Thread.sleep(5000);
-
     }
 
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
-       final String TRELLO_URL = "https://trello.com/login";
+        final String TRELLO_URL = "https://trello.com/login";
         boolean result = false;
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driver.get(TRELLO_URL);
@@ -86,12 +85,12 @@ public class CrudAppTestSuite {
         Thread.sleep(3000);
 
         driver.findElements(By.xpath("//a[@class=\"board-tile\"]")).stream()
-                .filter(aHref -> aHref.findElements(By.xpath(".//span[@title=\"Kodilla Application\"]")).size() > 0)
+                .filter(aHref -> aHref.findElements(By.xpath(".//div[@title=\"Kodilla Application\"]")).size() > 0)
                 .forEach(aHref -> aHref.click());
 
         Thread.sleep(3000);
 
-        result = driver.findElements(By.xpath("//span")).stream()
+        result = driver.findElements(By.xpath("//span[@class=\"list-card-title js-card-name\"]")).stream()
                 .filter(theSpan -> theSpan.getText().contains(taskName))
                 .collect(Collectors.toList())
                 .size() > 0;
@@ -100,19 +99,18 @@ public class CrudAppTestSuite {
         return result;
     }
 
-    public void removeTaskFromCrudApp(String taskName) {
+    public void removeTaskFromCrudApp(String taskName) throws InterruptedException{
         driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driver.get(BASE_URL);
 
-        while (!driver.findElement(By.xpath("//select[1]")).isDisplayed()) ;
+        Thread.sleep(1000);
 
         driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
-                .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
-                        .getText().equals(taskName))
-                .forEach(task ->
-                        task.findElements(By.xpath(".//../../button")).stream()
-                                .filter(button -> button.getText().equals("Delete"))
-                                .forEach(button -> button.click()));
+                .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]")).getText().equals(taskName))
+                .forEach(theForm -> {
+                    WebElement deleteElement = theForm.findElement(By.xpath(".// button[@data-task-delete-button]"));
+                    deleteElement.click();
+                });
     }
 
     @Test
