@@ -4,9 +4,7 @@ import config.WebDriverConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
@@ -21,7 +19,7 @@ public class CrudAppTestSuite {
 
     @Before
     public void initTests() {
-        driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
+        driver = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);
         driver.get(BASE_URL);
         generator = new Random();
     }
@@ -70,19 +68,21 @@ public class CrudAppTestSuite {
                 });
 
         Thread.sleep(5000);
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+
     }
 
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
         final String TRELLO_URL = "https://trello.com/login";
         boolean result = false;
-        WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
         driver.get(TRELLO_URL);
 
         driver.findElement(By.id("user")).sendKeys("w.mituta@gmail.com");
         driver.findElement(By.id("password")).sendKeys("komputer1");
         driver.findElement(By.id("login")).submit();
 
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 
         driver.findElements(By.xpath("//a[@class=\"board-tile\"]")).stream()
                 .filter(aHref -> aHref.findElements(By.xpath(".//div[@title=\"Kodilla Application\"]")).size() > 0)
@@ -95,18 +95,16 @@ public class CrudAppTestSuite {
                 .collect(Collectors.toList())
                 .size() > 0;
 
-        driver.close();
         return result;
     }
 
-    public void removeTaskFromCrudApp(String taskName) throws InterruptedException{
-        driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
+    public void removeTaskFromCrudApp(String taskName) throws InterruptedException {
         driver.get(BASE_URL);
 
-        Thread.sleep(1000);
+        Thread.sleep(5000);
 
         driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
-                .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]")).getText().equals(taskName))
+                .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]")).getText().contains(taskName))
                 .forEach(theForm -> {
                     WebElement deleteElement = theForm.findElement(By.xpath(".// button[@data-task-delete-button]"));
                     deleteElement.click();
